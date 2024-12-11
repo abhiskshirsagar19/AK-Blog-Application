@@ -10,7 +10,7 @@ export default function Header() {
     <Navbar className="border-b-2">
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-lg font-semibold dark:text-white"
+        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
         <span className="px-2 py-1 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 rounded-md text-white">
           AK's
@@ -38,20 +38,18 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to="/sign-in">
-          <Button gradientDuoTone="purpleToPink" color="gray">
-            Sign In
-          </Button>
+          <Button gradientDuoTone="purpleToPink">Sign In</Button>
         </Link>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse className="lg:hidden">
-        <Navbar.Link active={path === "/"} as="div">
+        <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
         </Navbar.Link>
-        <Navbar.Link>
+        <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>
         </Navbar.Link>
-        <Navbar.Link>
+        <Navbar.Link active={path === "/projects"} as={"div"}>
           <Link to="/projects">Projects</Link>
         </Navbar.Link>
       </Navbar.Collapse>
