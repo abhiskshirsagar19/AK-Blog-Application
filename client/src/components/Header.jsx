@@ -12,7 +12,7 @@ export default function Header() {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-gradient-to-r from-orange-400 via-orange-300 to-orange-500 rounded-md text-white">
+        <span className="px-2 py-1 bg-gradient-to-br from-pink-500 via-orange-400 to-orange-500 rounded-md text-white">
           AK's
         </span>
         Blog
@@ -38,7 +38,7 @@ export default function Header() {
           <FaMoon />
         </Button>
         <Link to="/sign-in">
-          <Button gradientDuoTone="purpleToPink">Sign In</Button>
+          <Button gradientDuoTone="pinkToOrange">Sign In</Button>
         </Link>
         <Navbar.Toggle />
       </div>
