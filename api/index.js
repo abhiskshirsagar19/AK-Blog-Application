@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.routes.js";
 import authRoutes from "./routes/auth.routes.js";
 import cookieParser from "cookie-parser";
+import postRoutes from "./routes/post.routes.js";
 dotenv.config();
 
 mongoose
@@ -17,6 +18,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.listen(3000, () => {
@@ -29,6 +31,7 @@ app.get("/test", (req, res) => {
 
 app.use("/api/user", userRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/post", postRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
