@@ -3,6 +3,8 @@
     "flowbite",
     "getposts",
     "getusers",
+    "handleshow",
+    "hoverable",
     "persistor",
     "uncategorized",
     "updatepost"
