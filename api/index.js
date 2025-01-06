@@ -6,6 +6,8 @@ import authRoutes from "./routes/auth.routes.js";
 import cookieParser from "cookie-parser";
 import postRoutes from "./routes/post.routes.js";
 import commentRoutes from "./routes/comment.routes.js";
+import cors from "cors";
+import bodyParser from "body-parser";
 dotenv.config();
 
 mongoose
@@ -17,7 +19,14 @@ mongoose
     console.log(error);
   });
 const app = express();
-
+app.use(bodyParser.json());
+app.use(
+  cors({
+    origin: "*", // Allow only this origin
+    methods: "GET,POST,PUT,DELETE", // Allowed methods
+    credentials: true, // Allow credentials if needed
+  })
+);
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
