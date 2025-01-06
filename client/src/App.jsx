@@ -13,6 +13,7 @@ import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import PostPage from "./pages/Postpage";
 import ScrollToTop from "./components/ScrollToTop";
+import Search from "./pages/Search";
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/post/:postSlug" element={<PostPage />} />
       </Routes>
       <FooterComponent />
