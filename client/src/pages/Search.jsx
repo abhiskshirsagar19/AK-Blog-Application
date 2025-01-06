@@ -1,10 +1,10 @@
 import { Button, Select, TextInput } from "flowbite-react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import PostCard from "../components/PostCard";
 export default function Search() {
   const [sideBarData, setSideBarData] = useState({
-    SearchTerm: "",
+    searchTerm: "",
     sort: "desc",
     category: "uncategorized",
   });
@@ -30,8 +30,8 @@ export default function Search() {
     const fetchPost = async () => {
       setLoading(false);
       const searchQuery = urlParams.toString();
-      const res = await fetchPost(`/api/post/getposts?${searchQuery}`);
-      if (res.ok) {
+      const res = await fetch(`/api/post/getposts?${searchQuery}`);
+      if (!res.ok) {
         setLoading(false);
         return;
       }
@@ -50,13 +50,12 @@ export default function Search() {
   }, [location.search]);
 
   const handleChange = (e) => {
-    if (e.target.searchTerm === "searchTerm") {
-      sideBarData({ ...sideBarData, searchTerm: e.target.value });
+    if (e.target.id === "searchTerm") {
+      setSideBarData({ ...sideBarData, searchTerm: e.target.value });
     }
     if (e.target.id === "sort") {
       const order = e.target.value || "desc";
-      setSideBarData;
-      ({ ...sideBarData, sort: order });
+      setSideBarData({ ...sideBarData, sort: order });
     }
     if (e.target.id === "category") {
       const category = e.target.value || "uncategorized";
@@ -124,10 +123,11 @@ export default function Search() {
               value={sideBarData.category}
               id="category"
             >
-              <option value="uncategorized">uncategorized</option>
-              <option value="reactJs">React.js</option>
-              <option value="nextJs">Next.js</option>
-              <option value="javaScript">JavaScript</option>
+              <option value="uncategorized">Select a category</option>
+              <option value="javascript">javascript</option>
+              <option value="react">React</option>
+              <option value="web-development">Web Development</option>
+              <option value="nextjs">Next.js</option>
             </Select>
           </div>
           <Button type="submit" gradientDuoTone="purpleToPink">

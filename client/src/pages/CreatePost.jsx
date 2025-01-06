@@ -102,6 +102,7 @@ export default function CreatePost() {
             <option value="javascript">javascript</option>
             <option value="react">React</option>
             <option value="web-development">Web Development</option>
+            <option value="nextjs">Next.js</option>
           </Select>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-400 p-3">

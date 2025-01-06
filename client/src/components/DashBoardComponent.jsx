@@ -111,7 +111,7 @@ export default function DashBoardComponent() {
             <div>
               <h3 className="text-gray-500 text-md uppercase">Total Posts</h3>
               <p className="text-2xl">Total Posts</p>
-              {totalUsers}
+              {totalPosts}
             </div>
             <HiDocumentText className="bg-lime-400 text-white rounded-full text-5xl p-3 shadow-lg" />
           </div>
