@@ -13,7 +13,9 @@ export default function Comment({ comment, onLike, onEdit, OnDelete }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch(`/api/user/${comment.userId}`);
+        const res = await fetch(
+          `https://ak-blog-application.vercel.app/api/user/${comment.userId}`
+        );
         const data = await res.json();
         if (res.ok) {
           setUser(data);
@@ -31,11 +33,14 @@ export default function Comment({ comment, onLike, onEdit, OnDelete }) {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`/api/comment/editComment/${comment._id}`, {
-        method: "PUT",
-        headers: { "Content-type": "application/json" },
-        body: JSON.stringify({ content: editedContent }),
-      });
+      const res = await fetch(
+        `https://ak-blog-application.vercel.app/api/comment/editComment/${comment._id}`,
+        {
+          method: "PUT",
+          headers: { "Content-type": "application/json" },
+          body: JSON.stringify({ content: editedContent }),
+        }
+      );
       if (res.ok) {
         setIsEditing(false);
         onEdit(comment, editedContent);
