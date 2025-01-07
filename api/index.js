@@ -18,7 +18,7 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
-export const app = express();
+const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
