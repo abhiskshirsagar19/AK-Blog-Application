@@ -6,7 +6,9 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://abhik-blog-application.vercel.app",
+        target:
+          "https://ak-blog-application-o2a0rfzom-abhis-projects-0596cfc8.vercel.app.",
+        changeOrigin: true,
         secure: false,
       },
     },
