@@ -1,7 +1,43 @@
 {
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/about",
+      "dest": "/"
+    },
+    {
+      "src": "/dashboard",
+      "dest": "/"
+    },
+    {
+      "src": "/create-post",
+      "dest": "/"
+    },
+    {
+      "src": "/update-post/:postId",
+      "dest": "/"
+    },
+    {
+      "src": "/sign-up",
+      "dest": "/"
+    },
+    {
+      "src": "/sign-in",
+      "dest": "/"
+    },
+    {
+      "src": "/projects",
+      "dest": "/"
+    },
+    {
+      "src": "/search",
+      "dest": "/"
+    },
+    {
+      "src": "/post/:postSlug",
       "dest": "/"
     }
   ]
