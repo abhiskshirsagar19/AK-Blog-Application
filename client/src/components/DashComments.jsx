@@ -13,7 +13,11 @@ export default function DashComments() {
     const fetchComments = async () => {
       try {
         const response = await fetch(
-          `https://ak-blog-application.vercel.app/api/comment/getComments`
+          `https://ak-blog-application.vercel.app/api/comment/getComments`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await response.json();
         // console.log(data);
@@ -37,7 +41,11 @@ export default function DashComments() {
 
     try {
       const res = await fetch(
-        `https://ak-blog-application.vercel.app/api/comment/getComments?startIndex=${startIndex}`
+        `https://ak-blog-application.vercel.app/api/comment/getComments?startIndex=${startIndex}`,
+        {
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
+        }
       );
       const data = await res.json();
       if (res.ok) {
@@ -58,6 +66,8 @@ export default function DashComments() {
         `https://ak-blog-application.vercel.app/api/comment/deleteComment/${commentIdToDelete}`,
         {
           method: "DELETE",
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
         }
       );
       const data = await res.json();

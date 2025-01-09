@@ -7,7 +7,13 @@ export default function Home() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch(`https://ak-blog-application.vercel.app/api/post/getPosts`);
+      const res = await fetch(
+        `https://ak-blog-application.vercel.app/api/post/getPosts`,
+        {
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       setPosts(data.posts);
     };

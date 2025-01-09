@@ -24,6 +24,7 @@ export default function CommentSection({ postId }) {
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
+          credentials: "include",
           body: JSON.stringify({
             content: comment,
             postId,
@@ -45,7 +46,11 @@ export default function CommentSection({ postId }) {
     const getComments = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/comment/getPostComments/${postId}`
+          `https://ak-blog-application.vercel.app/api/comment/getPostComments/${postId}`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         if (res.ok) {
           const data = await res.json();
@@ -68,6 +73,8 @@ export default function CommentSection({ postId }) {
         `https://ak-blog-application.vercel.app/api/comment/likeComment/${commentId}`,
         {
           method: "PUT",
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
         }
       );
       if (res.ok) {
@@ -106,6 +113,8 @@ export default function CommentSection({ postId }) {
         `https://ak-blog-application.vercel.app/api/comment/deleteComment/${commentId}`,
         {
           method: "DELETE",
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
         }
       );
       if (res.ok) {

@@ -24,7 +24,11 @@ export default function DashBoardComponent() {
     const fetchUsers = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/user/getusers?limit=5 `
+          `https://ak-blog-application.vercel.app/api/user/getusers?limit=5 `,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (res.ok) {
@@ -39,7 +43,11 @@ export default function DashBoardComponent() {
     const fetchComments = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/comment/getComments?limit=5 `
+          `https://ak-blog-application.vercel.app/api/comment/getComments?limit=5 `,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (res.ok) {
@@ -54,7 +62,11 @@ export default function DashBoardComponent() {
     const fetchPosts = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?limit=5 `
+          `https://ak-blog-application.vercel.app/api/post/getposts?limit=5 `,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (res.ok) {

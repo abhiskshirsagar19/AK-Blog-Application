@@ -31,7 +31,11 @@ export default function Search() {
       setLoading(false);
       const searchQuery = urlParams.toString();
       const res = await fetch(
-        `https://ak-blog-application.vercel.app/api/post/getposts?${searchQuery}`
+        `https://ak-blog-application.vercel.app/api/post/getposts?${searchQuery}`,
+        {
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
+        }
       );
       if (!res.ok) {
         setLoading(false);
@@ -80,7 +84,11 @@ export default function Search() {
     urlParams.set("startIndex", startIndex);
     const searchQuery = urlParams.toString();
     const res = await fetch(
-      `https://ak-blog-application.vercel.app/api/post/getposts?${searchQuery}`
+      `https://ak-blog-application.vercel.app/api/post/getposts?${searchQuery}`,
+      {
+        headers: { "Content-type": "application/json" },
+        credentials: "include",
+      }
     );
     if (!res.ok) {
       return;

@@ -18,7 +18,11 @@ export default function PostPage() {
       try {
         setLoading(true);
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?slug=${postSlug}`
+          `https://ak-blog-application.vercel.app/api/post/getposts?slug=${postSlug}`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         // console.log(data);
@@ -45,7 +49,11 @@ export default function PostPage() {
     try {
       const fetchRecentPost = async () => {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?limit=3`
+          `https://ak-blog-application.vercel.app/api/post/getposts?limit=3`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (res.ok) {

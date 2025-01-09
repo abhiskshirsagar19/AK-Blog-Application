@@ -13,7 +13,11 @@ export default function DashPosts() {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?userId=${currentUser._id}`
+          `https://ak-blog-application.vercel.app/api/post/getposts?userId=${currentUser._id}`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await response.json();
         // console.log(data);
@@ -37,7 +41,11 @@ export default function DashPosts() {
 
     try {
       const res = await fetch(
-        `https://ak-blog-application.vercel.app/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
+        `https://ak-blog-application.vercel.app/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`,
+        {
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
+        }
       );
       const data = await res.json();
       if (res.ok) {
@@ -55,7 +63,11 @@ export default function DashPosts() {
     try {
       const res = await fetch(
         `https://ak-blog-application.vercel.app/api/post/delete/${postIdToDelete}/${currentUser._id}`,
-        { method: "DELETE" }
+        {
+          method: "DELETE",
+          headers: { "Content-type": "application/json" },
+          credentials: "include",
+        }
       );
       const data = await res.json();
       if (!res.ok) {

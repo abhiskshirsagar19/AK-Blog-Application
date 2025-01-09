@@ -14,7 +14,11 @@ export default function Comment({ comment, onLike, onEdit, OnDelete }) {
     const getUser = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/user/${comment.userId}`
+          `https://ak-blog-application.vercel.app/api/user/${comment.userId}`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (res.ok) {
@@ -38,6 +42,7 @@ export default function Comment({ comment, onLike, onEdit, OnDelete }) {
         {
           method: "PUT",
           headers: { "Content-type": "application/json" },
+          credentials: "include",
           body: JSON.stringify({ content: editedContent }),
         }
       );

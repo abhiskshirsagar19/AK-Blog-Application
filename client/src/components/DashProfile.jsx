@@ -136,6 +136,7 @@ export default function DashProfile() {
         `https://ak-blog-application.vercel.app/api/user/delete/${currentUser._id}`,
         {
           method: "DELETE",
+          credentials: "include",
         }
       );
       const data = await res.json();

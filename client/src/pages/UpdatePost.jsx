@@ -31,7 +31,11 @@ export default function UpdatePost() {
     try {
       const fetchPost = async () => {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?postId=${postId}`
+          `https://ak-blog-application.vercel.app/api/post/getposts?postId=${postId}`,
+          {
+            headers: { "Content-type": "application/json" },
+            credentials: "include",
+          }
         );
         const data = await res.json();
         if (!res.ok) {
@@ -95,6 +99,7 @@ export default function UpdatePost() {
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
+          credentials: "include",
           body: JSON.stringify(formData),
         }
       );
