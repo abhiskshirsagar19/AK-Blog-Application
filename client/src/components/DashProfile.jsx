@@ -102,6 +102,7 @@ export default function DashProfile() {
     }
     try {
       dispatch(updateStart());
+
       const res = await fetch(
         `https://ak-blog-application.vercel.app/api/user/update/${currentUser._id}`,
         {
@@ -109,6 +110,7 @@ export default function DashProfile() {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify(formData),
         }
       );
@@ -247,7 +249,7 @@ export default function DashProfile() {
               gradientDuoTone="purpleToPink"
               className="w-full"
             >
-              Create a post{" "}
+              Create a post
             </Button>
           </Link>
         )}
@@ -270,11 +272,11 @@ export default function DashProfile() {
           {updateUserError}
         </Alert>
       )}
-      {error && (
+      {/* {error && (
         <Alert className="mt-5" color="failure">
           {error}
         </Alert>
-      )}
+      )} */}
 
       <Modal
         show={showModal}

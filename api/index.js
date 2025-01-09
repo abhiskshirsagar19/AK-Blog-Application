@@ -20,24 +20,25 @@ mongoose
   });
 const app = express();
 
-app.use(
-  cors({
-    origin: "*", // Allow only this origin
-    methods: "GET,POST,PUT,DELETE", // Allowed methods
-    credentials: true, // Allow credentials if needed
-  })
-);
+app.use(cookieParser());
 app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+
 app.use(bodyParser.json());
 app.listen(3000, () => {
   console.log("Server is running on Port 3000 ");
 });
-
+app.use(
+  cors({
+    //origin: "http://localhost:5173", // Allow only this origin
+    origin: "https://abhik-blog-application.vercel.app", // Allow only this origin
+    methods: "GET,POST,PUT,DELETE", // Allowed methods
+    credentials: true, // Allow credentials if needed
+  })
+);
 app.get("/", (req, res) => {
   res.json({
-    message: "Hi this Abhi Kshirsagar's blog API's are is coming !!!",
+    message: "Hi this is Abhi Kshirsagar's blog API's are is coming !!!",
   });
 });
 

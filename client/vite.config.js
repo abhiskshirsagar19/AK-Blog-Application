@@ -7,6 +7,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         target: "https://ak-blog-application.vercel.app",
+        // target: "http://localhost:3000",
         changeOrigin: true,
         secure: false,
       },
