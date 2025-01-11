@@ -62,11 +62,7 @@ export default function DashBoardComponent() {
     const fetchPosts = async () => {
       try {
         const res = await fetch(
-          `https://ak-blog-application.vercel.app/api/post/getposts?limit=5 `,
-          {
-            headers: { "Content-type": "application/json" },
-            credentials: "include",
-          }
+          `https://ak-blog-application.vercel.app/api/post/getposts?limit=5 `
         );
         const data = await res.json();
         if (res.ok) {
