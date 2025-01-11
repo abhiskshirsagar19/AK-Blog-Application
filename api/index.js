@@ -31,7 +31,7 @@ app.listen(3000, () => {
 app.use(
   cors({
     //origin: "http://localhost:5173", // Allow only this origin
-    origin: "https://abhik-blog-application.vercel.app", // Allow only this origin
+    origin: "https://ak-blog-application-8yoj.vercel.app", // Allow only this origin
     methods: "GET,POST,PUT,DELETE", // Allowed methods
     credentials: true, // Allow credentials if needed
   })
