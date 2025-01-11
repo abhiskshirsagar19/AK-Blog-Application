@@ -108,7 +108,7 @@ export const google = async (req, res, next) => {
         .cookie("access_token", token, {
           httpOnly: true,
           secure: true, // make false in the dev env
-          sameSite: "none",
+          sameSite: "lax",
         })
         .json(rest);
     }
