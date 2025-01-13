@@ -9,7 +9,10 @@ import commentRoutes from "./routes/comment.routes.js";
 import cors from "cors";
 import bodyParser from "body-parser";
 dotenv.config();
-
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://ak-blog-application-8yoj.vercel.app",
+];
 mongoose
   .connect(process.env.MONGODB)
   .then(() => {
@@ -28,10 +31,24 @@ app.use(bodyParser.json());
 app.listen(3000, () => {
   console.log("Server is running on Port 3000 ");
 });
+// app.use(
+//   cors({
+//     //origin: "http://localhost:5173", // Allow only this origin
+//     origin: "https://ak-blog-application-8yoj.vercel.app", // Allow only this origin
+//     methods: "GET,POST,PUT,DELETE", // Allowed methods
+//     credentials: true, // Allow credentials if needed
+//   })
+// );
 app.use(
   cors({
-    //origin: "http://localhost:5173", // Allow only this origin
-    origin: "https://ak-blog-application-8yoj.vercel.app", // Allow only this origin
+    origin: (origin, callback) => {
+      // Check if the request origin is in the allowedOrigins array
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error("Not allowed by CORS")); // Deny the request
+      }
+    },
     methods: "GET,POST,PUT,DELETE", // Allowed methods
     credentials: true, // Allow credentials if needed
   })
