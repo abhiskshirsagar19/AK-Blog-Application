@@ -81,7 +81,11 @@ export const google = async (req, res, next) => {
       const { password, ...rest } = user._doc;
       res
         .status(200)
-        .cookie("access_token", token, { httpOnly: true })
+        .cookie("access_token", token, {
+          httpOnly: true,
+          secure: true, // make false in the dev env
+          sameSite: "none",
+        })
         .json(rest);
     } else {
       const generatedPassword =
@@ -108,7 +112,7 @@ export const google = async (req, res, next) => {
         .cookie("access_token", token, {
           httpOnly: true,
           secure: true, // make false in the dev env
-          sameSite: "lax",
+          sameSite: "none",
         })
         .json(rest);
     }
