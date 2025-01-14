@@ -42,8 +42,11 @@ This application is more than just a project—it's a testament to my dedication
 2) Sign-in using email password or Google account.
 3) Sign-out
 4) Dark / Ligth mode
-5) Update user profile
+5) Update user profile (username, email, password)
 6) Delete Account
+7) Admin Dashboard
+8) Admin can delete, post, comment, users.
+9) Admin can edit the post.
 
 ---
 
