@@ -43,10 +43,13 @@ This application is more than just a project—it's a testament to my dedication
 3) Sign-out
 4) Dark / Ligth mode
 5) Update user profile (username, email, password)
-6) Delete Account
-7) Admin Dashboard
-8) Admin can delete, post, comment, users.
-9) Admin can edit the post.
+6) User can Read Post.
+7) Comment on Post
+8) Like Comments.
+9) Delete Account
+10) Admin Dashboard
+11) Admin can delete, post, comment, users.
+12) Admin can edit the post.
 
 ---
 
