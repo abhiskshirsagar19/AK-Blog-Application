@@ -8,7 +8,7 @@ import {
 } from "flowbite-react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaMoon } from "react-icons/fa";
+import { FaMoon, FaSun } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "../redux/theme/themeSlice";
 import { signoutSuccess } from "../redux/user/userSlice";
@@ -21,7 +21,7 @@ export default function Header() {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const { theme } = useSelector((state) => state.theme);
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
     const searchTermFromUrl = urlParams.get("searchTerm");
@@ -60,7 +60,7 @@ export default function Header() {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-gradient-to-br from-pink-500 via-orange-400 to-orange-500 rounded-md text-white">
+        <span className="px-2 py-1 bg-gradient-to-br from-pink-500 via-orange-400 to-orange-500 rounded-md text-white ml-5">
           AK's
         </span>
         Blog
@@ -75,7 +75,7 @@ export default function Header() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
       </form>
-      <Button className="w-16 h-10 lg:hidden" color="gray" pill>
+      <Button className="w-12 h-10 lg:hidden" color="gray" pill>
         <AiOutlineSearch />
       </Button>
       <div className="hidden lg:flex gap-10">
@@ -85,12 +85,13 @@ export default function Header() {
       </div>
       <div className="flex gap-2 md:order-2">
         <Button
-          className="w-12 h-10 hidden sm:inline"
+          className="w-12 h-10 hidden sm:inline mr-6"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
         >
-          <FaMoon />
+          {/* <FaMoon /> */}
+          {theme === "light" ? <FaSun /> : <FaMoon />}
         </Button>
         {currentUser ? (
           <Dropdown
